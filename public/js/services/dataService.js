@@ -4,12 +4,13 @@ app.service('dataService', function($http, $q) {
         var deferred = $q.defer();
         $http({
             method: 'GET',
-            url: '/api/birds'
+            url: 'https://mean-stack-c9-dustinmyers.c9.io/api/birds'
         }).then(function(res) {
-            console.log(res);
-            deferred.resolve(res)
-        })
-        return deferred.promise();
+            console.log('dataService ln 9 - res.data.message: ', res.data.message);
+            var birdString = res.data.message;
+            deferred.resolve(birdString);
+        });
+        return deferred.promise;
     };
     
     

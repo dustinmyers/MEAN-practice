@@ -6,13 +6,22 @@ var cors = require('cors');
 
 // SERVER
 var app = express();
-var port = 5050;
+var port = (process.env.PORT, process.env.IP) ||5050;
+
+
+var data = {'message': 'These birds are cool!'};
 
 // MIDDLEWARE - Every single request that comes in goes through middleware first!!!!!
+app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(cors());
 
 // ENDPOINTS
+app.get('/api/birds', function(req, res) {
+    console.log('******* req.body', req.body);
+    // console.log('******* res', res);
+    res.json(data);
+});
 
 
 
