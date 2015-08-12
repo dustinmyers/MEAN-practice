@@ -4,6 +4,11 @@
         <link rel="stylesheet" href="styles/styles.css" type="text/css" />
     </head>
     <body ng-controller='MainCtrl'>
+        
+        <input type="text" placeholder="name" ng-model='bird.name'/>
+        <input type="text" placeholder="order" ng-model='bird.order'/>
+        <input type="text" placeholder="status" ng-model='bird.status'/>
+        <button ng-click='createBird(bird)'>Create Bird</button>
 
         <button ng-click='getBirds()'>Get Birds!</button>
         

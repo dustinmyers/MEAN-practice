@@ -13,7 +13,18 @@ app.service('dataService', function($http, $q) {
         return deferred.promise;
     };
     
-    
-    
+    this.createBird = function(bird) {
+        console.log('bird obj - service ln 17: ', bird);
+        var deferred = $q.defer();
+        $http({
+            method: 'POST',
+            url: 'https://mean-stack-c9-dustinmyers.c9.io/api/birds',
+            data: bird
+        }).then(function(res) {
+            console.log('dataService ln 24 - res: ', res);
+            deferred.resolve(res);
+        });
+        return deferred.promise;
+    };
     
 });
