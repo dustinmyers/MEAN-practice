@@ -27,13 +27,13 @@ app.delete('/api/birds/:id', SightingCtrl.delete);
 
 // MongoDB CONNECTION
 var port = (process.env.PORT, process.env.IP) || 5050;
-// var mongoUri = 'mongodb://localhost:27017/miniBirds';
+var mongoUri = 'mongodb://localhost:27017/miniBirds';
 
-// mongoose.set('debug', true);
-// mongoose.connect(mongoUri);
-// mongoose.connection.once('open', function() {
-//     console.log('MongoDB cpnnected at: ', mongoUri);
-// });
+mongoose.set('debug', true);
+mongoose.connect(mongoUri);
+mongoose.connection.once('open', function() {
+    console.log('MongoDB connected at: ', mongoUri);
+});
 
 
 // app.listen(port, function() {

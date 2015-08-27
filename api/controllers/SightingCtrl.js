@@ -1,4 +1,4 @@
-var Sighting = require('../models/Sighting');
+var Sighting = require('../models/Sighting.js');
 
 module.exports = {
     read: function(req, res) {
@@ -10,6 +10,7 @@ module.exports = {
     },
     
     create: function(req, res) {
+        console.log(req.body)
         var newSighting = new Sighting(req.body);
         newSighting.save(function(err, result) {
             if(err) return res.status(500).send(err);
@@ -18,7 +19,7 @@ module.exports = {
     },
     
     update: function(req, res) {
-        Sighting.findByIdAndModify(req.params.id, req.body, function(err, result) {
+        Sighting.findByIdAndUpdate(req.params.id, req.body, function(err, result) {
             if(err) return res.status(500).send(err);
             else res.send(result);
         });
